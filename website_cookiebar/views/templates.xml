@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="layout" inherit_id="website.layout">
+        <xpath expr="//script[@id='tracking_code']" position="after">
+            <script type="text/javascript">
+                <t t-set="cookiebar_message" t-value="request.env['website.cookiebar'].sudo().browse([1]).message"/>
+                <t t-set="cookiebar_button_text" t-value="request.env['website.cookiebar'].sudo().browse([1]).button_text"/>
+                <t t-set="cookiebar_policy_text" t-value="request.env['website.cookiebar'].sudo().browse([1]).policy_text"/>
+                <t t-set="cookiebar_policy_url" t-value="request.env['website.cookiebar'].sudo().browse([1]).policy_url"/>
+                $.cookieBar({
+                    'message': '<t t-esc="cookiebar_message"/>',
+                    'acceptText': '<t t-esc="cookiebar_button_text"/>'
+                    <t t-if="cookiebar_policy_text">,'policyText': '<t t-esc="cookiebar_policy_text"/>'</t>
+                    <t t-if="cookiebar_policy_url">
+                        ,'policyButton': true
+                        ,'policyURL': '<t t-esc="cookiebar_policy_url"/>'
+                    </t>
+                });
+            </script>
+        </xpath>
+    </template>
+
+</odoo>

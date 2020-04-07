@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo noupdate="1">
+
+    <record id="website_cookiebar_default" model="website.cookiebar">
+        <field name="message">We use cookies to track usage and preferences</field>
+        <field name="button_text">I Understand</field>
+    </record>
+
+</odoo>
